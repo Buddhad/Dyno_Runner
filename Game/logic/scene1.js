@@ -23,7 +23,7 @@ var cursors
 ;(function launch() {
   let user = Moralis.User.current()
   if (!user) {
-    console.log('PLEASE LOG IN WITH METAMASK!!')
+    alert('PLEASE LOG IN WITH METAMASK!!')
   } else {
     console.log(
       'Your ID : ' + user.get('ethAddress') + ' ' + 'Welcome To my Game !!',
