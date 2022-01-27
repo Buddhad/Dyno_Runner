@@ -25,18 +25,20 @@ var cursors
   if (!user) {
     console.log('PLEASE LOG IN WITH METAMASK!!')
   } else {
-    console.log(user.get('ethAddress') + ' ' + 'Welcome To my Game !!')
+    console.log(
+      'Your ID : ' + user.get('ethAddress') + ' ' + 'Welcome To my Game !!',
+    )
     game = new Phaser.Game(config)
   }
 })()
 
 function preload() {
-  this.load.image('background', 'assets/BG/BG.png')
-  this.load.image('ground1', 'assets/Tiles/1.png')
-  this.load.image('ground2', 'assets/Tiles/2.png')
-  this.load.image('ground3', 'assets/Tiles/3.png')
-  this.load.image('dyno', 'assets/Character/idle/idle (1).png')
-  this.load.image('dyno_left', 'assets/Character/idle/left.png')
+  this.load.image('background', 'Game/assets/BG/BG.png')
+  this.load.image('ground1', 'Game/assets/Tiles/1.png')
+  this.load.image('ground2', 'Game/assets/Tiles/2.png')
+  this.load.image('ground3', 'Game/assets/Tiles/3.png')
+  this.load.image('dyno', 'Game/assets/Character/idle/idle (1).png')
+  this.load.image('dyno_left', 'Game/assets/Character/idle/left.png')
 }
 
 function create() {
@@ -59,7 +61,7 @@ function create() {
     .refreshBody()
   player.setBounce(0.2)
 
-  player.setCollideWorldBounds(true)
+  // player.setCollideWorldBounds(true)
   //Collsion function
   this.physics.add.collider(player, platforms)
   //Movement function
@@ -75,7 +77,6 @@ function update() {
   } else {
     player.setVelocityX(0)
   }
-
   if (cursors.up.isDown && player.body.touching.down) {
     player.setVelocityY(-330)
   }
